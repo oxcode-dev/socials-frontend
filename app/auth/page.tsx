@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 const Login = () => {
     return (
         <>
@@ -18,9 +20,9 @@ const Login = () => {
                     <div className="pt-4 md:pt-6">
                         <p className="text-sm text-gray-500 font-medium">
                             <span>Don't have an account? </span>
-                            {/* <Link href="/auth/register" className="text-green-600 font-semibold underline">
+                            <Link href="/auth/register" className="text-green-600 font-semibold underline">
                                 Register
-                            </Link> */}
+                            </Link>
                         </p>
                     </div>
                 </div>
