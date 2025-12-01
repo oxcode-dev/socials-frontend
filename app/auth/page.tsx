@@ -2,9 +2,28 @@ const Login = () => {
     return (
         <>
             <div className="text-black">
-                Hello Login
+                <div className="py-4 md:py-8 space-y-2 text-center">
+                    <p className="text-xl md:text-3xl font-bold text-gray-800">
+                        Welcome Back
+                    </p>
 
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus distinctio consequatur illo ratione architecto, accusantium aliquid. At autem quas, velit a cupiditate ducimus? Earum magni saepe quas debitis autem voluptatum!
+                    <p className="text-sm text-gray-500 font-medium">
+                        Sign in with your email and password.
+                    </p>
+                </div>
+
+                <div className="w-full space-y-2">
+                    {/* <LoginForm /> */}
+                   
+                    <div className="pt-4 md:pt-6">
+                        <p className="text-sm text-gray-500 font-medium">
+                            <span>Don't have an account? </span>
+                            {/* <Link href="/auth/register" className="text-green-600 font-semibold underline">
+                                Register
+                            </Link> */}
+                        </p>
+                    </div>
+                </div>
             </div>
         </>
     )
