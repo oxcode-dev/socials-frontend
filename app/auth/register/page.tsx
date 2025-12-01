@@ -8,7 +8,7 @@ const page = () => {
     return (
         <div>
             <div className="flex flex-col justify-center h-full">
-                <div className="py-4 md:py-8 space-y-2">
+                <div className="py-4 md:py-8 space-y-2 text-center">
                     <p className="text-xl md:text-3xl font-bold text-gray-800">
                         Create new account
                     </p>
