@@ -3,7 +3,7 @@ const LoginForm = () => {
     return (
         <>
 
-            <form>
+            <form className="text-accent">
                 <div>
                     <input type="email" />
                 </div>
