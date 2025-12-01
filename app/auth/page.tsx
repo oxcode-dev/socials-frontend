@@ -1,3 +1,4 @@
+import LoginForm from '@/forms/auth/LoginForm'
 import Link from 'next/link'
 
 const Login = () => {
@@ -15,7 +16,7 @@ const Login = () => {
                 </div>
 
                 <div className="w-full space-y-2">
-                    {/* <LoginForm /> */}
+                    <LoginForm />
                    
                     <div className="pt-4 md:pt-6">
                         <p className="text-sm text-gray-500 font-medium">
