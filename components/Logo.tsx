@@ -1,0 +1,16 @@
+// import { ShoppingCartIcon } from '@heroicons/react/20/solid'
+import React from 'react'
+
+export const Logo = () => {
+    return (
+        <div className="inline-flex space-x-2 items-center text-green-600">
+            <div>
+                {/* <ShoppingCartIcon className="size-8" /> */}
+            </div>
+            <div className="text-sm font-semibold">
+                <p>SOCIALS</p>
+            </div>
+        </div>
+    )
+}
+

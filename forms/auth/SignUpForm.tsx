@@ -20,7 +20,7 @@ const SignUpForm = () => {
                 </div>
 
                 <div className="w-full">
-                    <button className="btn btn-primary w-full">Sign In</button>
+                    <button className="btn btn-primary w-full">Get Started</button>
                 </div>
             </form>
 
