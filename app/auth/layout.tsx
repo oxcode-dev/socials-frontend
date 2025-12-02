@@ -1,5 +1,6 @@
 'use client';
 
+import { Logo } from '@/components/Logo';
 // import { Logo } from '@/components/Logo';
 // import useRedirectIfAuthenticated from '@/hooks/useRedirectIfAuthenticated';
 import Image from 'next/image'
@@ -23,7 +24,7 @@ const layout = ({
                         <div className="flex w-full md:max-w-sm mx-auto px-4 flex-col items-center justify-center h-full">
                             <div className="py-6 px-4 md:px-8 w-full">
                                 <Link href="/">
-                                    {/* <Logo /> */}
+                                    <Logo />
                                 </Link>
 
                                 <div className="w-full">
