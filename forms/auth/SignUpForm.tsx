@@ -19,8 +19,8 @@ const SignUpForm = () => {
                     <input type="password" placeholder="********" className="input bg-white border-gray-500" />
                 </div>
 
-                <div className="w-full">
-                    <button className="btn btn-primary w-full">Get Started</button>
+                <div className="w-full pt-4">
+                    <button className="btn bg-gray-500 border-gray-300 w-full">Get Started</button>
                 </div>
             </form>
 
