@@ -7,7 +7,7 @@ type LoginFormProp = {
 };
 
 
-const LoginForm = () => {
+const SignUpForm = () => {
     return (
         <>
 
@@ -49,4 +49,4 @@ const LoginForm = () => {
     )
 }
 
-export default LoginForm;
+export default SignUpForm;
