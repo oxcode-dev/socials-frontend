@@ -25,7 +25,7 @@ const LoginForm = () => {
                             <input 
                                 type="checkbox" 
                                 defaultChecked
-                                className="checkbox checkbox-primary checked:text-white checked:bg-primary checked:border-transparent checkbox-sm" 
+                                className="checkbox checkbox-neutral checked:text-white checked:bg-gray-600 checked:border-transparent checkbox-sm" 
                             />
                             Remember me
                         </label>
