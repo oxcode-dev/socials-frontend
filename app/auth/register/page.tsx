@@ -27,7 +27,7 @@ const page = () => {
                     <div className="pt-4 md:pt-6 text-center">
                         <p className="text-sm text-gray-500 font-medium">
                             <span>Already have an account? </span>
-                            <Link href="/auth" className="text-green-600 font-semibold underline">
+                            <Link href="/auth" className="text-gray-600 font-semibold underline">
                                 Log in
                             </Link>
                         </p>
