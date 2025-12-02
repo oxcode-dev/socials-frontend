@@ -11,12 +11,14 @@ const SignUpForm = () => {
     return (
         <>
 
-            <form className="flex flex-col w-full space-y-4">
+            <form className="flex flex-col w-full space-y-4 text-gray-500">
                 <div>
-                    <input type="email" placeholder="Your Email" className="input bg-white border-gray-500" />
+                    <label htmlFor="email" className="font-medium text-gray-500 mb-1">Email</label>
+                    <input type="email" id="email" placeholder="Your Email" className="input bg-white border-gray-500" />
                 </div>
                 <div>
-                    <input type="password" placeholder="********" className="input bg-white border-gray-500" />
+                    <label htmlFor="email" className="font-medium text-gray-500 mb-1">Password</label>
+                    <input type="password" id="password" placeholder="********" className="input bg-white border-gray-500" />
                 </div>
 
                 <div className="w-full pt-4">
