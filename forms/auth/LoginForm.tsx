@@ -10,6 +10,10 @@ const LoginForm = () => {
                 <div>
                     <input type="password" placeholder="********" className="input bg-white border-gray-500" />
                 </div>
+
+                <div className="w-full">
+                    <button className="btn btn-primary w-full">Primary</button>
+                </div>
             </form>
 
         </>
