@@ -34,7 +34,7 @@ const LoginForm = () => {
 
 
                 <div className="w-full">
-                    <button className="btn btn-primary w-full">Primary</button>
+                    <button className="btn btn-primary w-full">Sign In</button>
                 </div>
             </form>
 
