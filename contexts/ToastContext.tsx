@@ -37,6 +37,15 @@ export const ToastProvider = ({ children }: PropsType) : JSX.Element => {
         })
     }
 
+    const hideToast = () => {
+        setToast({
+            type: 'success',
+            message: '',
+            heading: '',
+            show: false
+        })
+    }
+
     return (
         <ToastContext.Provider value={{ toast }}>
             {children}
