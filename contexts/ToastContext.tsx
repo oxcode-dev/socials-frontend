@@ -1,3 +1,5 @@
+'use client'
+
 import React, { createContext, useState } from "react";
 import { JSX } from "react/jsx-runtime";
 
@@ -10,6 +12,8 @@ type ToastType = {
 
 type ToastContextType = {
     toast: ToastType;
+    hideToast: () => void;
+    showToast: (toast: {}) => void;
 };
 
 export const ToastContext = createContext<ToastContextType | null>(null);
@@ -20,7 +24,7 @@ type PropsType = {
     children:  React.ReactNode;
 }
 
-export const ToastProvider = ({ children }: PropsType) : JSX.Element => {
+export const ToastContextProvider = ({ children }: PropsType) : JSX.Element => {
     const [toast, setToast] = useState <ToastType>({
         type: 'success',
         message: '',
@@ -47,7 +51,7 @@ export const ToastProvider = ({ children }: PropsType) : JSX.Element => {
     }
 
     return (
-        <ToastContext.Provider value={{ toast }}>
+        <ToastContext.Provider value={{ toast, showToast, hideToast }}>
             {children}
         </ToastContext.Provider>
     )
