@@ -28,6 +28,15 @@ export const ToastProvider = ({ children }: PropsType) : JSX.Element => {
         show: false
     });
 
+    const showToast = () => {
+        setToast({
+            type: 'success',
+            message: '',
+            heading: '',
+            show: false
+        })
+    }
+
     return (
         <ToastContext.Provider value={{ toast }}>
             {children}
