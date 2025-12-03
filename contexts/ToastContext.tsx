@@ -1,25 +1,35 @@
 import React, { createContext, useState } from "react";
 import { JSX } from "react/jsx-runtime";
 
-type TokenContextType = {
-    token: string;
-    updateToken: (token: string) => void;
+type ToastType = {
+    type: "success" | 'error' | 'warning';
+    message: string;
+    heading: string;
+    show: boolean;
+}
+
+type ToastContextType = {
+    toast: ToastType;
 };
 
-export const ToastContext = createContext<TokenContextType | null>(null);
+export const ToastContext = createContext<ToastContextType | null>(null);
 
-// export const ToastContext = React.createContext({} as TokenContextType);
+// export const ToastContext = React.createContext({} as ToastContextType);
 
 type PropsType = {
     children:  React.ReactNode;
 }
 
 export const ToastProvider = ({ children }: PropsType) : JSX.Element => {
-    const [token, setToken] = useState('');
-    const updateToken = (string: string) => setToken(string);
+    const [toast, setToast] = useState <ToastType>({
+        type: 'success',
+        message: '',
+        heading: '',
+        show: false
+    });
 
     return (
-        <ToastContext.Provider value={{ token, updateToken }}>
+        <ToastContext.Provider value={{ toast }}>
             {children}
         </ToastContext.Provider>
     )
