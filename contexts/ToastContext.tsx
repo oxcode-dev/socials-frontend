@@ -18,8 +18,6 @@ type ToastContextType = {
 
 export const ToastContext = createContext<ToastContextType | null>(null);
 
-// export const ToastContext = React.createContext({} as ToastContextType);
-
 type PropsType = {
     children:  React.ReactNode;
 }
