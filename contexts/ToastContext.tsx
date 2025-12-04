@@ -22,7 +22,13 @@ type ToastParamentType = {
 type ToastContextType = {
     toast: ToastType;
     hideToast: () => void;
-    showToast: (toast: ToastParamentType) => void;
+    showToast: (
+        heading: string,
+        message: string,
+        type: "success" | 'error' | 'warning',
+        autoClose: boolean,
+        closeInSeconds: number
+    ) => void;
 };
 
 export const ToastContext = createContext<ToastContextType | undefined>(undefined);
@@ -39,13 +45,13 @@ export const ToastContextProvider = ({ children }: PropsType) : JSX.Element => {
         show: false
     });
 
-    const showToast = ({
-        heading,
-        message,
-        type = 'success',
-        autoClose = true,
-        closeInSeconds = 7
-    }: ToastParamentType) => {
+    const showToast = (
+        heading: string,
+        message: string,
+        type: "success" | 'error' | 'warning' = 'success',
+        autoClose: boolean = true,
+        closeInSeconds: number = 7
+   ) => {
         setToast({
             type: type,
             message: message,
