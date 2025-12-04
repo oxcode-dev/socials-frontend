@@ -56,7 +56,7 @@ export const ToastContextProvider = ({ children }: PropsType) : JSX.Element => {
             type: type,
             message: message,
             heading: heading,
-            show: false
+            show: true
         })
 
         if (autoClose) {
