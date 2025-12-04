@@ -1,3 +1,6 @@
+'use client'
+
+import { useToastContext } from '@/contexts/ToastContext';
 import Link from 'next/link'
 
 type LoginFormProp = {
@@ -8,6 +11,9 @@ type LoginFormProp = {
 
 
 const LoginForm = () => {
+    const { showToast } = useToastContext()
+
+    // showToast()
     return (
         <>
 
@@ -40,7 +46,10 @@ const LoginForm = () => {
                 </div>
 
                 <div className="w-full pt-4">
-                    <button className="btn bg-gray-500 border-gray-300 w-full">Sign In</button>
+                    <button 
+                        onClick={() => showToast({'heading', 'message', 'success', true, 7})}
+                        className="btn bg-gray-500 border-gray-300 w-full"
+                    >Sign In</button>
                 </div>
             </form>
 
