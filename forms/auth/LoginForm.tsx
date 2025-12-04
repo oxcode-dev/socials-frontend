@@ -8,14 +8,17 @@ import { yupResolver } from "@hookform/resolvers/yup"
 import * as yup from "yup"
 
 const schema = yup.object({
-    email: yup.string().email().required(),
+    email: yup.string()
+        .required('Please, provide your email address')
+        .email('Please, provide a valid email address'),
     password: yup.string().required('Please, provide your password!'),
-}).required()
+    remember_me: yup.boolean()
+})
 
 type LoginFormProp = {
     email: string
     password: string
-    // remember_me: boolean
+    remember_me: false
 };
 
 
@@ -27,6 +30,9 @@ const LoginForm = () => {
         watch,
         formState: { errors },
     } = useForm<LoginFormProp>({
+        defaultValues: {
+            remember_me: false,
+        },
         resolver: yupResolver(schema)
     })
 
@@ -60,7 +66,8 @@ const LoginForm = () => {
                         <label className="label text-sm">
                             <input 
                                 type="checkbox" 
-                                defaultChecked
+                                defaultChecked={false}
+                                {...register("remember_me")} 
                                 className="checkbox checkbox-neutral checked:text-white checked:bg-gray-600 checked:border-transparent checkbox-sm" 
                             />
                             Remember me
