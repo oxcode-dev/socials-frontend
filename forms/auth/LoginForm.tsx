@@ -48,7 +48,7 @@ const LoginForm = () => {
                 <div className="w-full pt-4">
                     <button
                         type="button" 
-                        onClick={() => showToast('heading', 'message', 'success', true, 7)}
+                        onClick={() => showToast('heading', 'message', 'warning', true, 10)}
                         className="btn bg-gray-500 border-gray-300 w-full"
                     >Sign In</button>
                 </div>

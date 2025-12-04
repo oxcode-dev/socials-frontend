@@ -50,7 +50,7 @@ export const ToastContextProvider = ({ children }: PropsType) : JSX.Element => {
         message: string,
         type: "success" | 'error' | 'warning' = 'success',
         autoClose: boolean = true,
-        closeInSeconds: number = 7
+        closeInSeconds: number = 10
    ) => {
         setToast({
             type: type,
