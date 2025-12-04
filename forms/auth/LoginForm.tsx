@@ -2,27 +2,57 @@
 
 import { useToastContext } from '@/contexts/ToastContext';
 import Link from 'next/link'
+import { SubmitHandler, useForm } from 'react-hook-form';
+
+import { yupResolver } from "@hookform/resolvers/yup"
+import * as yup from "yup"
+
+const schema = yup.object({
+    email: yup.string().email().required(),
+    password: yup.string().required('Please, provide your password!'),
+}).required()
 
 type LoginFormProp = {
     email: string
     password: string
-    remember_me: boolean
+    // remember_me: boolean
 };
 
 
 const LoginForm = () => {
     const { showToast } = useToastContext()
+    const {
+        register,
+        handleSubmit,
+        watch,
+        formState: { errors },
+    } = useForm<LoginFormProp>({
+        resolver: yupResolver(schema)
+    })
+
+    const onSubmit: SubmitHandler<LoginFormProp> = (data) => {
+        console.table(data)
+        showToast('heading', 'message', 'warning', true, 10)
+    }
 
     // showToast()
     return (
         <>
 
-            <form className="flex flex-col w-full space-y-4">
+            <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col w-full space-y-4">
                 <div>
-                    <input type="email" placeholder="Your Email" className="input bg-white border-gray-500 text-gray-600" />
+                    <input 
+                        {...register("email",  { required: true })} 
+                        type="email" placeholder="Your Email" className="input bg-white border-gray-500 text-gray-600" 
+                    />
+                    {errors.email?.message && <span className="text-red-600 text-xs font-medium">Email is required</span>}
                 </div>
                 <div>
-                    <input type="password" placeholder="********" className="input bg-white border-gray-500 text-gray-600" />
+                    <input 
+                        {...register("password",  { required: true })} 
+                        type="password" placeholder="********" className="input bg-white border-gray-500 text-gray-600" 
+                    />
+                    {errors.password?.message && <span className="text-red-600 text-xs font-medium">Password is required</span>}
                 </div>
 
                 <div className="flex justify-between items-center py-1.5">
@@ -47,8 +77,7 @@ const LoginForm = () => {
 
                 <div className="w-full pt-4">
                     <button
-                        type="button" 
-                        onClick={() => showToast('heading', 'message', 'warning', true, 10)}
+                        type="submit"
                         className="btn bg-gray-500 border-gray-300 w-full"
                     >Sign In</button>
                 </div>
