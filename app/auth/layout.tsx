@@ -20,8 +20,8 @@ const layout = ({
             <div className="relative">
 
                 <div className="relative w-full h-full md:h-screen">
-                    <div className="w-full h-full bg-white bg-linear-to-br from-0% to-60% from-gray-00 to-white">
-                        <div className="flex w-full md:max-w-sm mx-auto px-4 flex-col items-center justify-center h-full">
+                    <div className="w-full h-full bg-white bg-linear-to-br from-0% to-60% from-gray-00 to-white overflow-y-scroll">
+                        <div className="flex w-full md:max-w-sm mx-auto px-4 flex-col items-center justify-center h-full py-40">
                             <div className="py-6 px-4 md:px-8 w-full">
                                 <div className="flex items-center flex-col">
                                     <Link href="/">
