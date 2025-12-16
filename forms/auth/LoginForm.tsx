@@ -12,13 +12,13 @@ const schema = yup.object({
         .required('Please, provide your email address')
         .email('Please, provide a valid email address'),
     password: yup.string().required('Please, provide your password!'),
-    remember_me: yup.boolean()
+    rememberMe: yup.boolean()
 })
 
 type LoginFormProp = {
     email: string
     password: string
-    remember_me: false
+    rememberMe: false
 };
 
 
@@ -30,9 +30,7 @@ const LoginForm = () => {
         watch,
         formState: { errors },
     } = useForm<LoginFormProp>({
-        defaultValues: {
-            remember_me: false,
-        },
+        //@ts-ignore
         resolver: yupResolver(schema)
     })
 
@@ -67,11 +65,14 @@ const LoginForm = () => {
                             <input 
                                 type="checkbox" 
                                 defaultChecked={false}
-                                {...register("remember_me")} 
+                                {...register("rememberMe")} 
                                 className="checkbox checkbox-neutral checked:text-white checked:bg-gray-600 checked:border-transparent checkbox-sm" 
                             />
                             Remember me
                         </label>
+
+                         {errors.rememberMe?.message && <span className="text-red-600 text-xs font-medium">Password is required</span>}
+
                     </div>
 
                     <div>
