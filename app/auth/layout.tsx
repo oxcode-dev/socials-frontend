@@ -19,8 +19,8 @@ const layout = ({
         <div>
             <div className="relative">
 
-                <div className="relative w-full md:min-h-screen">
-                    <div className="w-full h-full bg-white min-h-screen bg-linear-to-br from-0% to-60% from-gray-300 to-white">
+                <div className="relative w-full h-full md:h-screen">
+                    <div className="w-full h-full bg-white bg-linear-to-br from-0% to-60% from-gray-00 to-white">
                         <div className="flex w-full md:max-w-sm mx-auto px-4 flex-col items-center justify-center h-full">
                             <div className="py-6 px-4 md:px-8 w-full">
                                 <div className="flex items-center flex-col">
