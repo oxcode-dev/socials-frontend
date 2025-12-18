@@ -40,16 +40,28 @@ const LoginForm = () => {
         resolver: yupResolver(schema)
     })
 
-    const onSubmit: SubmitHandler<LoginFormProp> = (data) => {
+    const onSubmit: SubmitHandler<LoginFormProp> = async (data) => {
         setIsLoading(true)
-        console.table(data)
-        showToast('heading', 'message', 'warning', true, 10)
+        // console.table(data)
+        // showToast('heading', 'message', 'warning', true, 10)
+
+        const response = await fetch('/api/login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ 
+                email: data.email, 
+                password: data.password,
+                remember_me: data.rememberMe
+            }),
+        })
+      
+        const feedback = await response.json()
+
     }
 
     // showToast()
     return (
         <>
-
             <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col w-full space-y-4">
                 <div>
                     <input 

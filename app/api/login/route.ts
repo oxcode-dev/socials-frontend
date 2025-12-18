@@ -16,6 +16,12 @@ export async function POST(request: NextRequest, res: NextApiResponse) {
 
         const { email, password, remember_me } = body
 
+        return new Response(JSON.stringify({body}), {
+            status: 201,
+            headers: { 'Content-Type': 'application/json' },
+        });
+
+
         const response = await fetch(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/api/login`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
