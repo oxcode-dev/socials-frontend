@@ -6,6 +6,8 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 
 import { yupResolver } from "@hookform/resolvers/yup"
 import * as yup from "yup"
+import { useState } from 'react';
+import { useRouter } from 'next/navigation'
 
 const schema = yup.object({
     email: yup.string()
@@ -23,11 +25,15 @@ type LoginFormProp = {
 
 
 const LoginForm = () => {
+    const [isLoading, setIsLoading] = useState(false)
+    const router = useRouter()
+
     const { showToast } = useToastContext()
     const {
         register,
         handleSubmit,
         watch,
+        clearErrors,
         formState: { errors },
     } = useForm<LoginFormProp>({
         //@ts-ignore
@@ -35,6 +41,7 @@ const LoginForm = () => {
     })
 
     const onSubmit: SubmitHandler<LoginFormProp> = (data) => {
+        setIsLoading(true)
         console.table(data)
         showToast('heading', 'message', 'warning', true, 10)
     }
@@ -49,7 +56,7 @@ const LoginForm = () => {
                         {...register("email",  { required: true })} 
                         type="email" placeholder="Your Email" className="input bg-white border-gray-500 text-gray-600" 
                     />
-                    {errors.email?.message && <span className="text-red-600 text-xs font-medium">Email is required</span>}
+                    {errors?.email?.message && <span className="text-red-600 text-xs font-medium">Email is required</span>}
                 </div>
                 <div>
                     <input 
@@ -87,7 +94,10 @@ const LoginForm = () => {
                     <button
                         type="submit"
                         className="btn bg-gray-500 border-gray-300 w-full"
-                    >Sign In</button>
+                    >
+                        {isLoading && <span className="loading loading-spinner"></span>}
+                        {isLoading ? 'Loading...' : 'Sign In'}
+                    </button>
                 </div>
             </form>
 
