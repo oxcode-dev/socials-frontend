@@ -12,7 +12,7 @@ export async function POST(request: NextRequest, res: NextApiResponse) {
     try{
         const body = await request.json();
 
-        await fetch(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/sanctum/csrf-cookie`)
+        // await fetch(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/sanctum/csrf-cookie`)
 
         const { email, password, remember_me } = body
 

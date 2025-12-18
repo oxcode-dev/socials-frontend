@@ -56,7 +56,9 @@ const LoginForm = () => {
         })
       
         const feedback = await response.json()
+        console.log(feedback)
 
+        setIsLoading(false)
     }
 
     // showToast()
