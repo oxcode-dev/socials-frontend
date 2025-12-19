@@ -8,6 +8,7 @@ import Providers from "./provider";
 import ReduxProvider from "@/store/ReduxProvider";
 import { usePathname } from "next/navigation";
 import { useEffect } from "react";
+import { AuthProvider } from "@/contexts/AuthContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -43,13 +44,15 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Providers>
-          <ReduxProvider >
+          <ReduxProvider>
+            <AuthProvider>
             <ToastContextProvider>
               <ToastNotification />
               <ScrollToTop>
                 {children}
               </ScrollToTop>
             </ToastContextProvider>
+            </AuthProvider>
           </ReduxProvider>
         </Providers>
       </body>
