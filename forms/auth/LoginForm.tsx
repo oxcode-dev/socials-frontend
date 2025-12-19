@@ -8,6 +8,7 @@ import { yupResolver } from "@hookform/resolvers/yup"
 import * as yup from "yup"
 import { useState } from 'react';
 import { useRouter } from 'next/navigation'
+import { XCircleIcon } from '@heroicons/react/20/solid';
 
 const schema = yup.object({
     email: yup.string()
@@ -26,6 +27,7 @@ type LoginFormProp = {
 
 const LoginForm = () => {
     const [isLoading, setIsLoading] = useState(false)
+    const [errorMessage, setErrorMessage] = useState('')
     const router = useRouter()
 
     const { showToast } = useToastContext()
@@ -40,10 +42,8 @@ const LoginForm = () => {
         resolver: yupResolver(schema)
     })
 
-    const onSubmit: SubmitHandler<LoginFormProp> = async (data) => {
+    const handleLoginForm: SubmitHandler<LoginFormProp> = async (data) => {
         setIsLoading(true)
-        // console.table(data)
-        // showToast('heading', 'message', 'warning', true, 10)
 
         const response = await fetch('/api/login', {
             method: 'POST',
@@ -56,7 +56,22 @@ const LoginForm = () => {
         })
       
         const feedback = await response.json()
-        console.log(feedback)
+        if (response.ok) {
+            const userDetails = feedback?.data?.data;
+            delete userDetails.token;
+
+            // await dispatch(setUser(feedback?.data?.data))
+            
+            setTimeout(() => {
+                router.push('/dashboard') // redirect to a protected page
+            }, 2000)
+        } else {
+            // console.log(feedback.data, feedback.data.message)
+            setErrorMessage(feedback?.data?.message || '')
+            showToast('Error Occurred', feedback?.data?.message || '', 'error', true, 10)
+            // alert(feedback?.data?.message || '')
+            setIsLoading(false);
+        }
 
         setIsLoading(false)
     }
@@ -64,7 +79,13 @@ const LoginForm = () => {
     // showToast()
     return (
         <>
-            <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col w-full space-y-4">
+            <form onSubmit={handleSubmit(handleLoginForm)} className="flex flex-col w-full space-y-4">
+                { errorMessage ? (
+                    <div role="alert" className="alert alert-error bg-red-500 text-white mb-2 text-sm">
+                        <XCircleIcon className="size-5" />
+                        <span>{errorMessage}</span>
+                    </div>
+                ) : null}
                 <div>
                     <input 
                         {...register("email",  { required: true })} 
