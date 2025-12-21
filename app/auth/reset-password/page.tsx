@@ -1,7 +1,6 @@
 'use client'
 
-import SignUpForm from '@/forms/auth/SignUpForm'
-// import RegistrationForm from '@/forms/auth/RegistrationForm'
+import ResetPasswordForm from '@/forms/auth/ResetPasswordForm'
 import Link from 'next/link'
 import React from 'react'
 
@@ -11,24 +10,23 @@ const page = () => {
             <div className="flex flex-col justify-center h-full">
                 <div className="py-4 md:py-8 space-y-2 text-center">
                     <p className="text-xl md:text-3xl font-bold text-gray-800">
-                        Create new account
+                        Reset Password
                     </p>
 
                     <p className="text-sm text-gray-500 font-medium">
-                        Please enter the relevant details
+                        Please provide the OTP sent to your email address to reset your password.
                     </p>
                 </div>
 
                 <div className="w-full space-y-4">
                     <div>
-                        <SignUpForm />
+                        <ResetPasswordForm />
                     </div>
 
-                    <div className="pt-4 md:pt-6 text-center">
+                    <div className="pt-4 md:pt-6 text-center hidden">
                         <p className="text-sm text-gray-500 font-medium">
-                            <span>Already have an account? </span>
                             <Link href="/auth" className="text-gray-600 font-semibold underline">
-                                Log in
+                               Back to Login
                             </Link>
                         </p>
                     </div>

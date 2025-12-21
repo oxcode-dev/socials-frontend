@@ -1,11 +1,138 @@
+'use client'
+
+import { useToastContext } from '@/contexts/ToastContext';
+import Link from 'next/link'
+import { SubmitHandler, useForm } from 'react-hook-form';
+
+import { yupResolver } from "@hookform/resolvers/yup"
+import * as yup from "yup"
+import { useState } from 'react';
+import { useRouter } from 'next/navigation'
+import { XCircleIcon } from '@heroicons/react/20/solid';
+
+const schema = yup.object({
+    email: yup.string()
+        .required('Please, provide your email address')
+        .email('Please, provide a valid email address'),
+    password: yup.string().required('Please, provide your password!'),
+    rememberMe: yup.boolean()
+})
+
+type LoginFormProp = {
+    email: string
+    password: string
+    rememberMe: false
+};
+
 
 const LoginForm = () => {
+    const [isLoading, setIsLoading] = useState(false)
+    const [errorMessage, setErrorMessage] = useState('')
+    const router = useRouter()
+
+    const { showToast } = useToastContext()
+    const {
+        register,
+        handleSubmit,
+        watch,
+        clearErrors,
+        formState: { errors },
+    } = useForm<LoginFormProp>({
+        //@ts-ignore
+        resolver: yupResolver(schema)
+    })
+
+    const handleLoginForm: SubmitHandler<LoginFormProp> = async (data) => {
+        setIsLoading(true)
+
+        const response = await fetch('/api/login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ 
+                email: data.email, 
+                password: data.password,
+                remember_me: data.rememberMe
+            }),
+        })
+      
+        const feedback = await response.json()
+        if (response.ok) {
+            const userDetails = feedback?.data?.data;
+            delete userDetails.token;
+
+            // await dispatch(setUser(feedback?.data?.data))
+            
+            setTimeout(() => {
+                router.push('/dashboard') // redirect to a protected page
+            }, 2000)
+        } else {
+            // console.log(feedback.data, feedback.data.message)
+            setErrorMessage(feedback?.data?.message || '')
+            showToast('Error Occurred', feedback?.data?.message || '', 'error', true, 10)
+            // alert(feedback?.data?.message || '')
+            setIsLoading(false);
+        }
+
+        setIsLoading(false)
+    }
+
+    // showToast()
     return (
         <>
-
-            <form className="text-accent">
+            <form onSubmit={handleSubmit(handleLoginForm)} className="flex flex-col w-full space-y-4">
+                { errorMessage ? (
+                    <div role="alert" className="alert alert-error bg-red-500 text-white mb-2 text-sm">
+                        <XCircleIcon className="size-5" />
+                        <span>{errorMessage}</span>
+                    </div>
+                ) : null}
                 <div>
-                    <input type="email" />
+                    <input 
+                        {...register("email",  { required: true })} 
+                        type="email" placeholder="Your Email" className="input bg-white border-gray-500 text-gray-600" 
+                    />
+                    {errors?.email?.message && <span className="text-red-600 text-xs font-medium">Email is required</span>}
+                </div>
+                <div>
+                    <input 
+                        {...register("password",  { required: true })} 
+                        type="password" placeholder="********" className="input bg-white border-gray-500 text-gray-600" 
+                    />
+                    {errors.password?.message && <span className="text-red-600 text-xs font-medium">Password is required</span>}
+                </div>
+
+                <div className="flex justify-between items-center py-1.5">
+                    <div>
+                        <label className="label text-sm">
+                            <input 
+                                type="checkbox" 
+                                defaultChecked={false}
+                                {...register("rememberMe")} 
+                                className="checkbox checkbox-neutral checked:text-white checked:bg-gray-600 checked:border-transparent checkbox-sm" 
+                            />
+                            Remember me
+                        </label>
+
+                         {errors.rememberMe?.message && <span className="text-red-600 text-xs font-medium">Password is required</span>}
+
+                    </div>
+
+                    <div>
+                        <Link href="/auth/forgot-password" className="text-sm text-gray-500 font-medium underline">
+                            Forgot Password?
+                        </Link>
+                    </div>
+
+                </div>
+
+                <div className="w-full pt-4">
+                    <button
+                        type="submit"
+                        className="btn bg-gray-500 border-gray-300 w-full"
+                    >
+                        {isLoading && <span className="loading loading-spinner"></span>}
+                        {isLoading ? 'Loading...' : 'Sign In'}
+                    </button>
                 </div>
             </form>
 

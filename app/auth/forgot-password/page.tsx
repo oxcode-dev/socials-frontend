@@ -11,24 +11,32 @@ const page = () => {
             <div className="flex flex-col justify-center h-full">
                 <div className="py-4 md:py-8 space-y-2 text-center">
                     <p className="text-xl md:text-3xl font-bold text-gray-800">
-                        Create new account
+                        Forgot Password
                     </p>
 
                     <p className="text-sm text-gray-500 font-medium">
-                        Please enter the relevant details
+                        Please provide your email address to retrieve your password.
                     </p>
                 </div>
 
                 <div className="w-full space-y-4">
                     <div>
-                        <SignUpForm />
+                        {/* <SignUpForm /> */}
+                        <form className="flex flex-col w-full space-y-4">
+                            <div>
+                                <input type="email" placeholder="Your Email" className="input bg-white border-gray-500" />
+                            </div>
+
+                            <div className="w-full pt-4">
+                                <button className="btn bg-gray-500 border-gray-300 w-full">Submit</button>
+                            </div>
+                        </form>
                     </div>
 
                     <div className="pt-4 md:pt-6 text-center">
                         <p className="text-sm text-gray-500 font-medium">
-                            <span>Already have an account? </span>
                             <Link href="/auth" className="text-gray-600 font-semibold underline">
-                                Log in
+                               Back to Login
                             </Link>
                         </p>
                     </div>
