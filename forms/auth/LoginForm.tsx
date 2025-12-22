@@ -128,7 +128,7 @@ const LoginForm = () => {
                 <div className="w-full pt-4">
                     <button
                         type="submit"
-                        className="btn bg-gray-500 border-gray-300 w-full"
+                        className="btn bg-gray-500 border-gray-300 w-full text-white"
                     >
                         {isLoading && <span className="loading loading-spinner"></span>}
                         {isLoading ? 'Loading...' : 'Sign In'}
