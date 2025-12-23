@@ -1,3 +1,5 @@
+import { Logo } from "./Logo";
+
 export default function Sidebar () {
     return (
         <>
@@ -7,7 +9,7 @@ export default function Sidebar () {
 
                     <div className="flex h-20 px-2 max-md:fixed max-md:top-0 max-md:w-full max-md:bg-white/80 max-md:left-0 max-md:px-4 max-md:h-14 max-md:shadow-sm max-md:dark:bg-slate-900/80 backdrop-blur-xl">
                         <a href="home.html" id="logo" className="flex items-center gap-3">
-                            Logo
+                            <Logo />
                         </a>
                     </div>
 
@@ -28,32 +30,16 @@ export default function Sidebar () {
                         <a href="messages.html" className="max-md:!fixed max-md:top-2 max-md:right-2">
                             <span className="max-xl:hidden"> Messages </span>
                         </a>
-                        
-                        <a href="reels.html">
-                            <span className="max-xl:hidden"> reels </span>
-                        </a>
 
                         <a href="#!" className="max-md:!fixed max-md:top-2 max-md:right-14 relative" aria-haspopup="true" aria-expanded="false"> 
                             <span className="max-xl:hidden"> Notifications </span>
                             <div className="w-2 h-2 bg-red-600 rounded-full absolute left-7 top-2.5"></div>
-                        </a>
-
-                        <a href="shop.html">
-                            <span className="max-xl:hidden"> Shop </span>
-                        </a>
-
-                        <a href="peaple.html" className="max-md:!hidden">
-                            <span className="max-xl:hidden"> Peaple </span>
                         </a>
                         
                         <a href="!#">
                             <button uk-toggle="target: #create-post" className="flex items-center gap-3 w-full" aria-expanded="false">
                                 <span className="max-xl:hidden"> Create </span>
                             </button>
-                        </a>
-                        
-                        <a href="components.html" className="max-md:!hidden">
-                            <span className="max-xl:hidden"> components </span>
                         </a>
 
                         <a href="profile.html" className="max-md:!hidden">
@@ -67,7 +53,7 @@ export default function Sidebar () {
                             <img src="assets/images/avatars/avatar-7.jpg" alt="" className="rounded-full md:w-7 md:h-7 w-5 h-5 shrink-0" />
                             <span className="font-semibold text-sm max-xl:hidden">  Monroe Parker </span>
                         </a>
-                        <div className="bg-white sm:w-64 2xl:w-[calc(100%-16px)] w-full shadow-lg border rounded-xl overflow-hidden max-md:!top-auto max-md:bottom-16 border2 dark:bg-dark2 hidden uk-drop" uk-drop="animation:uk-animation-slide-bottom-medium ;animate-out: true">
+                        <div className="bg-white sm:w-64 2xl:w-[calc(100%-16px)] w-full shadow-lg border rounded-xl overflow-hidden max-md:!top-auto max-md:bottom-16 border-2 hidden uk-drop" uk-drop="animation:uk-animation-slide-bottom-medium ;animate-out: true">
 
                             <div className="w-full h-1.5 bg-gradient-to-r to-purple-500 via-red-500 from-pink-500"></div>
 
@@ -76,7 +62,7 @@ export default function Sidebar () {
                                     <img src="assets/images/avatars/avatar-3.jpg" className="w-8 h-8 rounded-full" alt="" />
                                     <div className="mt-2 space-y-0.5">
                                         <div className="text-base font-semibold"> Monroe Parker </div>
-                                        <div className="text-gray-400 dark:text-white/80"> @monroe </div>
+                                        <div className="text-gray-400"> @monroe </div>
                                     </div>
                                 </a>
                                 <div className="mt-3 flex gap-3.5">
