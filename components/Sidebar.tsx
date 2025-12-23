@@ -5,7 +5,7 @@ export default function Sidebar () {
         <>
             <div id="sidebar" className="bg-green-600 fixed top-0 left-0 z-40 max-md:top-auto max-md:bottom-0">
 
-                <div id="sidebar__inner" className="flex side md:flex-col justify-between md:h-screen md:p-2 p-1 transition-all duration-500 bg-white shadow dark:bg-dark2 2xl:w-72 xl:w-60 max-xl:w-[73px] max-md:w-screen max-md:border-t max-md:dark:border-slate-700">
+                <div id="sidebar__inner" className="flex side md:flex-col justify-between md:h-screen md:p-2 p-1 transition-all duration-500 bg-white shadow 2xl:w-72 xl:w-60 max-xl:w-[73px] max-md:w-screen max-md:border-t max-md:dark:border-slate-700">
 
                     <div className="flex h-20 px-2 max-md:fixed max-md:top-0 max-md:w-full max-md:bg-white/80 max-md:left-0 max-md:px-4 max-md:h-14 max-md:shadow-sm max-md:dark:bg-slate-900/80 backdrop-blur-xl">
                         <a href="home.html" id="logo" className="flex items-center gap-3">
@@ -66,8 +66,8 @@ export default function Sidebar () {
                                     </div>
                                 </a>
                                 <div className="mt-3 flex gap-3.5">
-                                    <div> <a href="profile.html"> <strong> 620K </strong> <span className="text-gray-400 dark:text-white/80 ml-1">Following </span> </a> </div>
-                                    <div> <a href="profile.html"> <strong> 38k </strong> <span className="text-gray-400 dark:text-white/80 ml-1">Followers </span> </a>  </div>
+                                    <div> <a href="profile.html"> <strong> 620K </strong> <span className="text-gray-400 ml-1">Following </span> </a> </div>
+                                    <div> <a href="profile.html"> <strong> 38k </strong> <span className="text-gray-400 ml-1">Followers </span> </a>  </div>
                                 </div>
                                     
                             </div>
