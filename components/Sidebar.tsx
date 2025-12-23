@@ -1,3 +1,4 @@
+import { EnvelopeIcon, HomeIcon, MagnifyingGlassIcon } from "@heroicons/react/20/solid";
 import { Logo } from "./Logo";
 
 export default function Sidebar () {
@@ -5,7 +6,7 @@ export default function Sidebar () {
         <>
             <div id="sidebar" className="bg-green-600 fixed top-0 left-0 z-40 max-md:top-auto max-md:bottom-0">
 
-                <div id="sidebar__inner" className="flex side md:flex-col justify-between md:h-screen md:p-2 p-1 transition-all duration-500 bg-white shadow 2xl:w-72 xl:w-60 max-xl:w-[73px] max-md:w-screen max-md:border-t max-md:dark:border-slate-700">
+                <div className="flex side md:flex-col justify-between md:h-screen md:p-2 p-1 transition-all duration-500 bg-white shadow 2xl:w-72 xl:w-60 max-xl:w-[73px] max-md:w-screen max-md:border-t max-md:dark:border-slate-700">
 
                     <div className="flex h-20 px-2 max-md:fixed max-md:top-0 max-md:w-full max-md:bg-white/80 max-md:left-0 max-md:px-4 max-md:h-14 max-md:shadow-sm max-md:dark:bg-slate-900/80 backdrop-blur-xl">
                         <a href="home.html" id="logo" className="flex items-center gap-3">
@@ -13,21 +14,24 @@ export default function Sidebar () {
                         </a>
                     </div>
 
-                    <nav className="flex-1 flex-col flex max-md:justify-around md:space-y-2">
+                    <nav className="flex-1 flex-col flex max-md:justify-around md:space-y-2 [&_a]:inline-flex [&_a]:items-center [&_a]:space-x-2">
 
-                        <a href="home.html" className="active">
+                        <a href="home.html" className="">
+                            <HomeIcon className="size-5" />
                             <span className="max-xl:hidden"> Home </span>
                         </a>
                     
-                        <a href="#!" aria-haspopup="true" aria-expanded="false">
+                        <a href="#!" className="" aria-haspopup="true" aria-expanded="false">
+                            <MagnifyingGlassIcon className="size-5" />
                             <span className="max-xl:hidden"> Search </span>
                         </a>  
 
-                        <a href="explore.html" className="max-md:!hidden">
+                        <a href="explore.html" className="">
                             <span className="max-xl:hidden"> Explore </span>
                         </a>  
 
                         <a href="messages.html" className="max-md:!fixed max-md:top-2 max-md:right-2">
+                            <EnvelopeIcon className="size-5" />
                             <span className="max-xl:hidden"> Messages </span>
                         </a>
 
