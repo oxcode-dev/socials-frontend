@@ -43,7 +43,7 @@ export default function Sidebar () {
                 <nav className="flex-1 flex flex-col px-4 space-y-6 overflow-y-auto py-4">
                     {
                         navItems.map((nav, key) => (
-                            <a key={key} className="inline-flex space-x-2 items-center">
+                            <a key={key} className="inline-flex space-x-2 items-center text-gray-500 hover:text-blue-500">
                                 <nav.icon className="size-5" />
                                 <span>{nav.label}</span>
                             </a>
