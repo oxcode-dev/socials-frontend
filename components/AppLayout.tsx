@@ -1,10 +1,17 @@
 import Sidebar from "./Sidebar";
 
-export default function AppLayout () {
+type PropType = {
+    children: any
+}
+
+export default function AppLayout ({ children }: PropType) {
     return (
         <>
-            <div className="flex min-h-screen bg-zinc-50 font-sans dark:bg-black">
+            <div className="flex min-h-screen bg-zinc-50 font-sans">
                 <Sidebar />
+                <div>
+                    {children}
+                </div>
             </div>
         </>
     )
