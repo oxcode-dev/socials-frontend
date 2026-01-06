@@ -9,9 +9,11 @@ export default function AppLayout ({ children }: PropType) {
         <>
             <div className="flex min-h-screen bg-zinc-50 font-sans">
                 <Sidebar />
-                <div className="w-full md:ml-64 text-gray-500">
-                    {children}
-                </div>
+                <main className="w-full md:ml-64 text-gray-500">
+                    <div className="p-2 md:p-4">
+                        {children}
+                    </div>
+                </main>
             </div>
         </>
     )

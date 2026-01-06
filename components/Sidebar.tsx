@@ -34,7 +34,7 @@ const navItems = [
 ]
 export default function Sidebar () {
     return (
-        <aside className="w-64 absolute top-0 left-0 bottom-0 z-50">
+        <aside className="w-64 fixed top-0 left-0 bottom-0 z-50">
             <div className="w-full bg-white border-r border-gray-200 flex-shrink-0 flex flex-col h-full">
                 <div className="px-6 pt-6 pb-2 flex items-center space-x-3">
                     <span className="text-xl font-bold text-slate-800 tracking-tight">Workbench</span>
