@@ -1,4 +1,4 @@
-import { ArrowRightIcon, HomeIcon, MagnifyingGlassIcon, EnvelopeIcon, BellAlertIcon, UserIcon, ArrowRightStartOnRectangleIcon } from "@heroicons/react/24/outline"
+import { ArrowRightIcon, HomeIcon, MagnifyingGlassIcon, EnvelopeIcon, BellAlertIcon, UserIcon, ArrowRightStartOnRectangleIcon, XMarkIcon } from "@heroicons/react/24/outline"
 
 const navItems = [
     {
@@ -38,12 +38,21 @@ const navItems = [
         active: true,
     }
 ]
-export default function Sidebar () {
+
+type PropType = {
+    setIsOpen: any
+    isOpen: boolean
+}
+
+export default function Sidebar ({ isOpen, setIsOpen}: PropType) {
     return (
         <aside className="w-64 fixed top-0 left-0 bottom-0 z-50">
             <div className="w-full bg-white border-r border-gray-200 flex-shrink-0 flex flex-col h-full">
-                <div className="px-6 pt-6 pb-2 flex items-center space-x-3">
+                <div className="px-3 pt-6 pb-2 flex items-center space-x-3 justify-between">
                     <span className="text-xl font-bold text-slate-800 tracking-tight">Socials</span>
+                    <a>
+                        <XMarkIcon className="size-6" />
+                    </a>
                 </div>
 
                 <nav className="flex-1 flex flex-col overflow-y-auto py-4">
