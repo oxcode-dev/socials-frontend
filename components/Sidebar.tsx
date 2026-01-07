@@ -1,4 +1,4 @@
-import { HomeIcon } from "@heroicons/react/24/outline"
+import { ArrowRightIcon, HomeIcon } from "@heroicons/react/24/outline"
 
 const navItems = [
     {
@@ -37,19 +37,36 @@ export default function Sidebar () {
         <aside className="w-64 fixed top-0 left-0 bottom-0 z-50">
             <div className="w-full bg-white border-r border-gray-200 flex-shrink-0 flex flex-col h-full">
                 <div className="px-6 pt-6 pb-2 flex items-center space-x-3">
-                    <span className="text-xl font-bold text-slate-800 tracking-tight">Workbench</span>
+                    <span className="text-xl font-bold text-slate-800 tracking-tight">Socials</span>
                 </div>
 
-                <nav className="flex-1 flex flex-col px-4 space-y-6 overflow-y-auto py-4">
+                <nav className="flex-1 flex flex-col overflow-y-auto py-4">
                     {
                         navItems.map((nav, key) => (
-                            <a key={key} className="inline-flex text-base space-x-2 items-center text-gray-500 hover:text-blue-500">
+                            <a key={key} className="inline-flex text-base space-x-2 items-center text-gray-500 hover:text-blue-500 hover:bg-blue-50 py-2 px-3">
                                 <nav.icon className="size-5" />
                                 <span>{nav.label}</span>
                             </a>
                         ))
                     }
                 </nav>
+
+                <div>
+                    <div>
+                        
+                    </div>
+                    <div className="pb-4 px-2">
+                        <div className="text-red-600 inline-flex items-center justify-between">
+                            <p>
+                                <span className="bg-gray-50 size-6">OS</span>
+                                <span>Osemeke Samuel</span>
+                            </p>
+                            <p>
+                                <ArrowRightIcon className="size-5" />
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </aside>
     )
