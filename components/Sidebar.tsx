@@ -56,9 +56,9 @@ export default function Sidebar () {
                         
                     </div>
                     <div className="pb-4 px-2">
-                        <div className="text-red-600 inline-flex items-center justify-between">
-                            <p>
-                                <span className="bg-gray-50 size-6">OS</span>
+                        <div className="text-red-600 inline-flex items-center justify-between w-full">
+                            <p className="space-x-2">
+                                <span className="bg-gray-200 size-8 p-2 text-sm text-gray-600 rounded-full inline-flex items-center justify-center">OS</span>
                                 <span>Osemeke Samuel</span>
                             </p>
                             <p>
