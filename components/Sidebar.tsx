@@ -58,18 +58,18 @@ export default function Sidebar () {
                 </nav>
 
                 <div>
-                    <div>
-                        
-                    </div>
                     <div className="pb-4 px-2">
-                        <div className="text-red-600 inline-flex items-center justify-between w-full">
-                            <p className="space-x-2">
+                        <div className="inline-flex items-center justify-between w-full">
+                            <div className="space-x-3 flex items-center">
                                 <span className="bg-gray-200 size-8 p-2 text-sm text-gray-600 rounded-full inline-flex items-center justify-center">OS</span>
-                                <span>Osemeke Samuel</span>
-                            </p>
-                            <p>
+                                <p className="inline-flex flex-col text-sm font-medium text-gray-600 -space-y-0.5">
+                                    <span>Osemeke Samuel</span>
+                                    <span className="font-light text-xs">@oxcode__</span>
+                                </p>
+                            </div>
+                            {/* <p>
                                 <ArrowRightIcon className="size-5" />
-                            </p>
+                            </p> */}
                         </div>
                     </div>
                 </div>
