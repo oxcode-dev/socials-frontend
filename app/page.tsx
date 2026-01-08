@@ -6,7 +6,15 @@ export default function Home() {
   return (
     <div>    
       <AppLayout>
-        Hello World
+
+        <div className="w-full flex">
+          <div className="w-full md:w-2/3">
+            <div>
+              
+            </div>
+          </div>
+          <div className="w-full md:w-1/3"></div>
+        </div>
       </AppLayout>
     </div>
   );
