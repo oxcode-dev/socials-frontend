@@ -10,8 +10,23 @@ export default function Home() {
         <div className="w-full flex flex-wrap">
           <div className="w-full md:w-2/3">
             <div>
-              <div className="card bg-gray-100 w-full shadow-sm">
-                <figure className="px-4 pt-4">
+              <div className="card bg-gray-100 w-full shadow-sm px-4 py-2 space-y-2">
+                <div className="w-full flex">
+                  <div className="inline-flex space-x-2 items-center">
+                    <img 
+                      src="https://demo.foxthemes.net/instello/assets/images/avatars/avatar-7.jpg"
+                      className="size-12 rounded-full object-cover"
+                    />
+                    <div>
+                      <p className="text-sm font-semibold">Osemeke Samuel</p>
+                      <p className="text-xs font-light text-gray-500">2 hours age</p>
+                    </div>
+
+                  </div>
+                  <div></div>
+                </div>
+
+                <figure className="">
                   <img
                     src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
                     alt="Shoes"

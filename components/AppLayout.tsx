@@ -34,7 +34,7 @@ export default function AppLayout ({ children }: PropType) {
                     </div>
                 </div>
 
-                <main className="w-full md:ml-64 text-gray-500 pt-16 md:pt-0">
+                <main className="w-full md:pl-64 text-gray-500 pt-16 md:pt-0">
                     <div className="p-2 md:p-4">
                         {children}
                     </div>
