@@ -15,7 +15,7 @@ export default function Home() {
                   <div className="inline-flex space-x-2 items-center">
                     <img 
                       src="https://demo.foxthemes.net/instello/assets/images/avatars/avatar-7.jpg"
-                      className="size-12 rounded-full object-cover"
+                      className="size-8 rounded-full object-cover"
                     />
                     <div>
                       <p className="text-sm font-semibold">Osemeke Samuel</p>
