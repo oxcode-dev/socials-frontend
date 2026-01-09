@@ -1,6 +1,6 @@
 import AppLayout from "@/components/AppLayout";
 import Sidebar from "@/components/Sidebar";
-import { ChatBubbleOvalLeftEllipsisIcon, HeartIcon } from "@heroicons/react/20/solid";
+import { BookmarkIcon, ChatBubbleOvalLeftEllipsisIcon, HeartIcon } from "@heroicons/react/20/solid";
 import { EllipsisHorizontalIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 
@@ -55,7 +55,7 @@ export default function Home() {
                   <p className="text-xs">
                     A card component has a figure, a body part, and inside body there are title and actions parts
                   </p>
-                  <div>
+                  <div className="flex justify-between items-center">
                     <div className="inline-flex items-center space-x-2">
                       <p className="inline-flex items-center space-x-2">
                         <span className="rounded-full bg-gray-200 shadow-md inline-flex items-center justify-center p-1">
@@ -75,6 +75,13 @@ export default function Home() {
                       </p>
                     </div>
 
+                    <div className="inline-flex items-center space-x-2">
+                      <p className="inline-flex items-center space-x-2">
+                        <span className="rounded-full bg-gray-200 shadow-md inline-flex items-center justify-center  p-1">
+                          <BookmarkIcon className="size-5" />
+                        </span>
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
