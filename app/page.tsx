@@ -52,7 +52,7 @@ export default function Home() {
                 </figure>
 
                 <div className="card-body p-2 px-0">
-                  <p className="text-xs">
+                  <p className="text-sm">
                     A card component has a figure, a body part, and inside body there are title and actions parts
                   </p>
                   <div className="flex justify-between items-center">
