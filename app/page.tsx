@@ -52,13 +52,13 @@ export default function Home() {
                 </figure>
 
                 <div className="card-body p-2 px-0">
-                  <p>
+                  <p className="text-xs">
                     A card component has a figure, a body part, and inside body there are title and actions parts
                   </p>
                   <div>
                     <div className="inline-flex items-center space-x-2">
                       <p className="inline-flex items-center space-x-2">
-                        <span className="rounded-full bg-gray-200 shadow-md inline-flex p-1">
+                        <span className="rounded-full bg-gray-200 shadow-md inline-flex items-center justify-center p-1">
                           <HeartIcon className="size-5" />
                         </span>
                         <span className="font-semibold">
@@ -66,11 +66,11 @@ export default function Home() {
                         </span>
                       </p>
                       <p className="inline-flex items-center space-x-2">
-                        <span className="rounded-full bg-gray-200 shadow-md inline-flex p-1">
+                        <span className="rounded-full bg-gray-200 shadow-md inline-flex items-center justify-center  p-1">
                           <ChatBubbleOvalLeftEllipsisIcon className="size-5" />
                         </span>
                         <span className="font-semibold">
-                          1,300
+                          1,530
                         </span>
                       </p>
                     </div>
