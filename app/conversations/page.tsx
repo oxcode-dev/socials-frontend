@@ -92,6 +92,30 @@ const MOCK_CONVERSATIONS: Conversation[] = [
         timestamp: 'Read at 1.30pm',
         isMe: true,
         status: 'read'
+      },
+      {
+        id: 'm7',
+        text: 'Speling din respektive ben. Kabel fassade ande. Nyvis egonera i viralgranska.',
+        senderId: 'me',
+        timestamp: 'Read at 1.30pm',
+        isMe: true,
+        status: 'read'
+      },
+      {
+        id: 'm8',
+        text: 'Speling din respektive ben. Kabel fassade ande. Nyvis egonera i viralgranska.',
+        senderId: 'me',
+        timestamp: 'Read at 1.30pm',
+        isMe: false,
+        status: 'read'
+      },
+      {
+        id: 'm9',
+        text: 'Speling din respektive ben. Kabel fassade ande. Nyvis egonera i viralgranska.',
+        senderId: 'me',
+        timestamp: 'Read at 1.30pm',
+        isMe: true,
+        status: 'read'
       }
     ]
   },
@@ -290,7 +314,7 @@ const page: React.FC = () => {
             {/* Sidebar Header */}
             <div className="p-6 pb-2">
             <div className="flex items-center gap-2 mb-6">
-                <h2 className="text-xl font-bold text-slate-800">Inbox</h2>
+                <h2 className="text-xl font-bold text-slate-800">Conversations</h2>
                 <span className="px-2 py-0.5 bg-gray-100 text-slate-500 rounded-full text-xs font-bold border border-gray-200">
                 20
                 </span>
@@ -330,7 +354,7 @@ const page: React.FC = () => {
         </div>
 
         {/* Chat Area */}
-        <div className="flex-1 flex flex-col bg-gray-50 h-full relative">
+        <div className="flex-1 flex flex-col bg-gray-50 h-full overflow-y-auto md:h-[calc(100vh-137px)] h-[calc(100vh-250px)] relative">
             
             {/* Chat Header */}
             <header className="h-20 bg-white border-b border-gray-200 px-6 flex items-center justify-between shrink-0">
