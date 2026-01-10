@@ -1,10 +1,11 @@
-
+'use client'
 import React, { useState, useEffect, useRef } from 'react';
 import { 
   Search, SlidersHorizontal, Paperclip, Send, 
   Phone, Video, Info, Image as ImageIcon,
   Smile, MoreHorizontal
 } from 'lucide-react';
+import AppLayout from '@/components/AppLayout';
 
 // --- Types ---
 
@@ -281,140 +282,142 @@ const page: React.FC = () => {
   );
 
   return (
-    <div className="flex h-full bg-white overflow-hidden">
-      {/* Sidebar List */}
-      <div className="w-full md:w-80 lg:w-96 flex flex-col border-r border-gray-200 bg-white">
-        
-        {/* Sidebar Header */}
-        <div className="p-6 pb-2">
-          <div className="flex items-center gap-2 mb-6">
-            <h2 className="text-xl font-bold text-slate-800">Inbox</h2>
-            <span className="px-2 py-0.5 bg-gray-100 text-slate-500 rounded-full text-xs font-bold border border-gray-200">
-              20
-            </span>
-          </div>
-
-          <div className="relative">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" size={16} />
-            <input 
-              type="text" 
-              placeholder="Search Messages" 
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-10 pr-10 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm outline-none focus:ring-2 focus:ring-blue-100 transition-all placeholder:text-slate-400"
-            />
-            <button className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600">
-              <SlidersHorizontal size={14} />
-            </button>
-          </div>
-        </div>
-
-        {/* Conversation List */}
-        <div className="flex-1 overflow-y-auto">
-          {filteredConversations.map(conv => (
-            <ConversationItem 
-              key={conv.id}
-              conversation={conv}
-              isActive={selectedId === conv.id}
-              onClick={() => setSelectedId(conv.id)}
-            />
-          ))}
-          {filteredConversations.length === 0 && (
-            <div className="p-8 text-center text-slate-400 text-sm">
-              No conversations found.
-            </div>
-          )}
-        </div>
-      </div>
-
-      {/* Chat Area */}
-      <div className="flex-1 flex flex-col bg-gray-50 h-full relative">
-        
-        {/* Chat Header */}
-        <header className="h-20 bg-white border-b border-gray-200 px-6 flex items-center justify-between shrink-0">
-          <div className="flex items-center gap-4">
-            <div className="relative">
-              <img 
-                src={activeConversation.userAvatar} 
-                alt={activeConversation.userName} 
-                className="w-10 h-10 rounded-full object-cover"
-              />
-              {activeConversation.isOnline && (
-                <div className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-emerald-500 border-2 border-white rounded-full"></div>
-              )}
-            </div>
-            <div>
-              <h2 className="text-base font-bold text-slate-900 leading-tight">{activeConversation.userName}</h2>
-              <p className="text-xs text-slate-500">{activeConversation.userRole}</p>
-            </div>
-          </div>
-
-          <div className="flex items-center gap-1">
-            <button className="p-2 text-slate-400 hover:text-blue-600 hover:bg-blue-50 rounded-full transition-colors">
-              <Phone size={20} />
-            </button>
-            <button className="p-2 text-slate-400 hover:text-blue-600 hover:bg-blue-50 rounded-full transition-colors">
-              <Video size={20} />
-            </button>
-            <button className="p-2 text-slate-400 hover:text-blue-600 hover:bg-blue-50 rounded-full transition-colors">
-              <Info size={20} />
-            </button>
-          </div>
-        </header>
-
-        {/* Messages */}
-        <div className="flex-1 overflow-y-auto p-6 scroll-smooth">
-          <div className="flex justify-center mb-8">
-            <span className="text-xs font-medium text-slate-400 bg-white px-3 py-1 rounded-full border border-gray-100 shadow-sm">
-              Monday 10.20pm
-            </span>
-          </div>
-          
-          {activeConversation.messages.map((msg) => (
-            <ChatBubble 
-              key={msg.id} 
-              message={msg} 
-              senderAvatar={activeConversation.userAvatar} 
-            />
-          ))}
-          <div ref={messagesEndRef} />
-        </div>
-
-        {/* Input Area */}
-        <div className="bg-white border-t border-gray-200 p-4 shrink-0">
-          <form 
-            onSubmit={handleSendMessage}
-            className="max-w-4xl mx-auto relative flex items-center gap-2 bg-white border border-blue-100 rounded-2xl p-2 shadow-sm focus-within:ring-2 focus-within:ring-blue-100 focus-within:border-blue-300 transition-all"
-          >
-            <input 
-              type="text" 
-              value={inputText}
-              onChange={(e) => setInputText(e.target.value)}
-              placeholder="Type here..."
-              className="flex-1 px-4 py-3 bg-transparent outline-none text-slate-700 placeholder:text-slate-400 h-12"
-            />
+    <AppLayout>
+        <div className="flex h-full bg-white overflow-hidden">
+        {/* Sidebar List */}
+        <div className="w-full md:w-80 lg:w-96 flex flex-col border-r border-gray-200 bg-white">
             
-            <div className="flex items-center gap-1 pr-2">
-              <button type="button" className="p-2 text-slate-400 hover:text-slate-600 transition-colors">
-                <Paperclip size={20} />
-              </button>
-              <button type="button" className="p-2 text-slate-400 hover:text-slate-600 transition-colors">
-                <ImageIcon size={20} />
-              </button>
-              <div className="w-px h-6 bg-gray-200 mx-1"></div>
-              <button 
-                type="submit"
-                disabled={!inputText.trim()}
-                className="w-10 h-10 bg-blue-600 text-white rounded-xl flex items-center justify-center hover:bg-blue-700 transition-colors disabled:bg-slate-200 disabled:cursor-not-allowed shadow-md shadow-blue-200"
-              >
-                <Send size={18} className="ml-0.5" />
-              </button>
+            {/* Sidebar Header */}
+            <div className="p-6 pb-2">
+            <div className="flex items-center gap-2 mb-6">
+                <h2 className="text-xl font-bold text-slate-800">Inbox</h2>
+                <span className="px-2 py-0.5 bg-gray-100 text-slate-500 rounded-full text-xs font-bold border border-gray-200">
+                20
+                </span>
             </div>
-          </form>
+
+            <div className="relative">
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" size={16} />
+                <input 
+                type="text" 
+                placeholder="Search Messages" 
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full pl-10 pr-10 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm outline-none focus:ring-2 focus:ring-blue-100 transition-all placeholder:text-slate-400"
+                />
+                <button className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600">
+                <SlidersHorizontal size={14} />
+                </button>
+            </div>
+            </div>
+
+            {/* Conversation List */}
+            <div className="flex-1 overflow-y-auto">
+            {filteredConversations.map(conv => (
+                <ConversationItem 
+                key={conv.id}
+                conversation={conv}
+                isActive={selectedId === conv.id}
+                onClick={() => setSelectedId(conv.id)}
+                />
+            ))}
+            {filteredConversations.length === 0 && (
+                <div className="p-8 text-center text-slate-400 text-sm">
+                No conversations found.
+                </div>
+            )}
+            </div>
         </div>
 
-      </div>
-    </div>
+        {/* Chat Area */}
+        <div className="flex-1 flex flex-col bg-gray-50 h-full relative">
+            
+            {/* Chat Header */}
+            <header className="h-20 bg-white border-b border-gray-200 px-6 flex items-center justify-between shrink-0">
+            <div className="flex items-center gap-4">
+                <div className="relative">
+                <img 
+                    src={activeConversation.userAvatar} 
+                    alt={activeConversation.userName} 
+                    className="w-10 h-10 rounded-full object-cover"
+                />
+                {activeConversation.isOnline && (
+                    <div className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-emerald-500 border-2 border-white rounded-full"></div>
+                )}
+                </div>
+                <div>
+                <h2 className="text-base font-bold text-slate-900 leading-tight">{activeConversation.userName}</h2>
+                <p className="text-xs text-slate-500">{activeConversation.userRole}</p>
+                </div>
+            </div>
+
+            <div className="flex items-center gap-1">
+                <button className="p-2 text-slate-400 hover:text-blue-600 hover:bg-blue-50 rounded-full transition-colors">
+                <Phone size={20} />
+                </button>
+                <button className="p-2 text-slate-400 hover:text-blue-600 hover:bg-blue-50 rounded-full transition-colors">
+                <Video size={20} />
+                </button>
+                <button className="p-2 text-slate-400 hover:text-blue-600 hover:bg-blue-50 rounded-full transition-colors">
+                <Info size={20} />
+                </button>
+            </div>
+            </header>
+
+            {/* Messages */}
+            <div className="flex-1 overflow-y-auto p-6 scroll-smooth">
+            <div className="flex justify-center mb-8">
+                <span className="text-xs font-medium text-slate-400 bg-white px-3 py-1 rounded-full border border-gray-100 shadow-sm">
+                Monday 10.20pm
+                </span>
+            </div>
+            
+            {activeConversation.messages.map((msg) => (
+                <ChatBubble 
+                key={msg.id} 
+                message={msg} 
+                senderAvatar={activeConversation.userAvatar} 
+                />
+            ))}
+            <div ref={messagesEndRef} />
+            </div>
+
+            {/* Input Area */}
+            <div className="bg-white border-t border-gray-200 p-4 shrink-0">
+            <form 
+                onSubmit={handleSendMessage}
+                className="max-w-4xl mx-auto relative flex items-center gap-2 bg-white border border-blue-100 rounded-2xl p-2 shadow-sm focus-within:ring-2 focus-within:ring-blue-100 focus-within:border-blue-300 transition-all"
+            >
+                <input 
+                type="text" 
+                value={inputText}
+                onChange={(e) => setInputText(e.target.value)}
+                placeholder="Type here..."
+                className="flex-1 px-4 py-3 bg-transparent outline-none text-slate-700 placeholder:text-slate-400 h-12"
+                />
+                
+                <div className="flex items-center gap-1 pr-2">
+                <button type="button" className="p-2 text-slate-400 hover:text-slate-600 transition-colors">
+                    <Paperclip size={20} />
+                </button>
+                <button type="button" className="p-2 text-slate-400 hover:text-slate-600 transition-colors">
+                    <ImageIcon size={20} />
+                </button>
+                <div className="w-px h-6 bg-gray-200 mx-1"></div>
+                <button 
+                    type="submit"
+                    disabled={!inputText.trim()}
+                    className="w-10 h-10 bg-blue-600 text-white rounded-xl flex items-center justify-center hover:bg-blue-700 transition-colors disabled:bg-slate-200 disabled:cursor-not-allowed shadow-md shadow-blue-200"
+                >
+                    <Send size={18} className="ml-0.5" />
+                </button>
+                </div>
+            </form>
+            </div>
+
+        </div>
+        </div>
+    </AppLayout>
   );
 };
 
