@@ -88,4 +88,3 @@ export default function Sidebar ({ isOpen, setIsOpen}: PropType) {
     )
 }
 
-
