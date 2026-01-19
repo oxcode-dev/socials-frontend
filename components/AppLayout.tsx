@@ -45,4 +45,3 @@ export default function AppLayout ({ children }: PropType) {
 }
 
 
-
