@@ -1,0 +1,252 @@
+10 years of coding advice in 60 seconds:
+
+- use a debugger
+- you can’t cheat time in the saddle - get used to making mistakes
+- interviewing is the highest paying skill
+- it’s easier to switch jobs than get a large raise
+- do stuff that makes you nervous
+- build something outside work to keep your skills relevant
+- other people in the meeting are afraid to ask the dumb question you are afraid to ask
+- write tests
+- keep a brag document or you won’t remember what you did all year
+- leave the code better than you found it
+- never make people feel dumb - it’s bad for your career and your soul
+- if arguing about coding languages online worked - no one would be using JavaScript
+- marketing, design, sales, product and legal are just as important as your tech team - in many cases - much more important
+- understand if your team is a cost or profit center before the market turns
+- the closer you are to the data, the harder you will be to replace
+- there’s a lot of smart assholes out there - don’t be one
+- a walk outside solved more bugs than staring at a screen
+- be careful who’s advice you take 
+
+
+
+If you're a frontend developer and your core skills is React. I suggest you learn the concepts below in depth before giving your next Interview.
+
+1. Hoisting
+2. Closure
+3. Promise
+4. Function currying 
+5. Execution context
+6. Call, apply, Bind
+7. Polyfills for most common array and string methods. 
+
+React
+1. Reconciliation 
+2. Hooks 
+3. Class v/s functional components
+4. Memoization 
+5. HOC
+6. Performance
+7. React Router
+8. Caching
+9. Security 
+10. Improving perfomance 
+11. Memory leaks
+
+
+Most asked 60 hashtag#javascript interview questions:
+
+1. What is the difference between 'Pass by Value' and 'Pass by Reference'?
+ - Pass by value: the function receives a copy of the value. Mutating the parameter inside the function does not change the caller’s variable.
+ - Pass by reference: the function receives a reference (alias) to the original. Mutating via that reference changes the caller’s object/variable.
+
+2. What is the difference between map and filter?
+- Use map to convert values, use filter to select values.
+
+3. What is the difference between map() and forEach() 
+- map = map values to a new array; forEach = iterate to do something (no returned array).
+
+4. What is the difference between Pure and Impure functions?
+- Pure = same input → same output and no side effects; Impure = depends on or changes outside world (harder to test and reason about).
+
+5. What is the difference between for-in and for-of?
+-for-in = iterate property names (keys) on objects; for-of = iterate values from iterables.
+
+6. What are the differences between call(), apply() and bind()?
+- call/apply: call now with a chosen this (apply takes args as an array); bind: make a new function permanently bound to that this (and optionally some args).
+
+7. List out some key features of ES6?
+- ES6 brought block scoping, concise functions & classes, modules, destructuring, promises, iterables/collections, and many syntax/library improvements that dramatically modernized JavaScript.
+
+8. What’s the spread operator in javascript?
+- ... (spread) expands iterables into elements and object properties into a new object — convenient for copying, merging, and passing args; remember it’s shallow and different from rest (which collects).
+
+9. What is rest operator in javascript?
+- rest ... gathers the remaining items into a single variable (array for arrays/params, object for object rest), must appear last in patterns, and is different from spread which expands items in expressions.
+
+10. What are DRY, KISS, YAGNI, SOLID Principles?
+- DRY, KISS, YAGNI are high-level engineering heuristics; SOLID is a set of principles to design maintainable, extensible object-oriented modules — use them pragmatically to balance simplicity, flexibility, and maintainability.
+
+11. What is temporal dead zone?
+- TDZ = the period after entering a scope but before a let/const/class binding is initialized — any access during that period throws a ReferenceError.
+
+12. Different ways to create object in javascript?
+- JavaScript offers many ways to create objects: object literals and Object.create for simple cases, constructors/classes for prototype-based instances, factory functions for closures, and Object.assign/spread for copying/merging — choose based on prototype needs, sharing of methods, and whether you need private state or descriptor control.
+
+13. Whats the difference between Object.keys,values and entries?
+- keys → array of own enumerable property names (strings); values → corresponding values; entries → [key, value] pairs — all exclude inherited, non-enumerable, and symbol-keyed properties.
+
+14. Whats the difference between Object.freeze() vs Object.seal()
+- seal locks the object’s structure (no add/delete/reconfigure) but still allows value changes for writable properties; freeze locks both structure and values (shallowly).
+
+15. What is a polyfill in javascript?
+- A polyfill provides a runtime fallback for newer JS APIs in older environments (use feature detection, prefer targeted polyfills or ponyfills, and combine with transpilation when you need new syntax).
+
+16. What is generator function in javascript?
+- Generator functions (function*) let you yield values and pause/resume execution, returning an iterator-like generator object—excellent for lazy sequences, stateful iterators, and complex iteration logic.
+
+17. What is prototype in javascript?
+- A prototype is the object used for inheritance and property lookup in JS: instances delegate to their prototype(s) via the prototype chain to find properties and methods.
+
+18. What is IIFE?
+- An IIFE is a function expression that runs immediately to create a private scope and execute initialization logic without polluting the outer scope.
+
+19. What is CORS?
+- CORS is the browser-enforced protocol (via HTTP headers) that lets servers selectively allow cross-origin web requests — servers must send the correct Access-Control-Allow-* headers for browsers to expose responses to cross-origin JavaScript.
+
+20. What are the different datatypes in javascript?
+- JS has 7 primitives (undefined, null, boolean, number, bigint, string, symbol) and objects for everything else (arrays, functions, maps, etc.); use typeof/Array.isArray/instanceof/Object.prototype.toString for reliable checks and remember typeof null === "object".
+
+21. What are the difference between typescript and javascript?
+- TypeScript = JavaScript + optional static types and tooling; it prevents many classes of bugs at compile time while producing plain JS that runs everywhere.
+
+22. What is authentication vs authorization?
+- Authentication answers “Who are you?”; authorization answers “What are you allowed to do?” — both are required and distinct steps in secure access control.
+
+23. Difference between null and undefined?
+- undefined = JavaScript’s default “no value yet”; null = programmer’s explicit “no value here.”
+
+24. What is the output of 3+2+”7”?
+- 57
+
+25. Slice vs Splice in javascript?
+- slice = non-mutating extractor (returns a copy/substring); splice = mutating editor (removes/inserts in-place and returns removed elements).
+
+26. What is destructuring?
+- Destructuring is a compact way to pull values out of arrays and objects into variables, supporting defaults, renaming, nesting, and rest collection for clearer, less verbose code.
+
+27. What is setTimeOut in javascript?
+- setTimeout schedules a function to run after at least the specified delay (approximate, non-blocking), returns a handle you can clear, and is subject to event-loop scheduling and browser/Node timer behaviors.
+
+28. What is setInterval in javascript?
+- setInterval repeatedly schedules a callback at (approximate) intervals — use clearInterval to stop it, and prefer recursive setTimeout or guards when you need precise timing or to avoid overlapped executions.
+
+29. What are Promises in javascript?
+- Promises are composable, single-assignment objects representing eventual results of async operations; use .then/.catch/.finally or async/await for readable asynchronous control flow and prefer the built-in helpers (Promise.all, allSettled, race, any) for orchestration.
+
+30. What is a callstack in javascript?
+- The call stack is the LIFO stack of active function calls that represents synchronous program execution; understanding it helps debug errors, exceptions, and the interplay between sync code and async callbacks.
+
+31. What is a closure?
+- A closure is a function plus the environment it remembers — it allows the function to access and persist outer-scope variables even after the outer function has finished.
+
+32. What are callbacks in javascript? 
+- A callback is a function passed to be invoked later — powerful and flexible, but for complex async control prefer Promises/async-await to avoid nesting, improve readability, and simplify error handling.
+
+33. What are Higher Order Functions in javascript?
+- Higher-order functions accept or return functions, enabling powerful abstractions, composition, and reusable control patterns in JavaScript.
+
+34. What is the difference between == and === in javascript?
+- Use === for strict, predictable comparisons; == performs type coercion and can produce surprising results unless you intentionally rely on its rules.
+
+35. Is javascript a dynamically typed language or a statically typed language 
+- JavaScript is dynamically typed (types are checked at runtime); use TypeScript or Flow if you want static type checking on top of JS.
+
+36. What is the difference between Indexeddb and sessionstorage?
+- sessionStorage = tiny, synchronous, per-tab string store for ephemeral data.
+- IndexedDB = full-featured, asynchronous client-side database for large, structured, persistent data and binary blobs. Choose based on data size, persistence needs, concurrency, and performance.
+
+37. What are Interceptors?
+- Interceptors are middleware-like hooks for intercepting and modifying requests/responses (or calls) centrally—use them for cross-cutting concerns like auth, logging, retries, and transformations while keeping them small, async-friendly, and predictable.
+
+38. What is Hoisting?
+- Hoisting means declarations are processed before execution: function declarations are available fully, var is hoisted as undefined, while let/const/class create bindings that are inaccessible until their declaration (TDZ) — prefer let/const and clear declaration placement.
+
+39. What are the differences let, var and const?
+- Use const for immutable bindings, let for mutable bindings, and avoid var because its function/global scoping and initialization behavior are usually surprising.
+
+41. Differences between Promise.all, allSettled, any, race?
+- all = all must succeed (fail fast), allSettled = wait for everything, any = first success (fails only if all fail), race = first to settle (success or failure).
+
+42. What are limitations of arrow functions?
+- Arrow functions are concise and give lexical this, but lack their own this, arguments, prototype, and cannot be used as constructors or generators — use regular functions when you need those features.
+
+43. What is difference between find vs findIndex?
+- Use find when you need the matching element; use findIndex when you need its position (for updates/removals or existence checks).
+
+44. What is tree shaking in javascript?
+- Tree shaking is the static removal of unused module exports (enabled by ES modules and supported by modern bundlers) to reduce bundle size — but it needs side-effect transparency, static imports/exports, and cooperation from your build toolchain to be effective.
+
+45. What is the main difference between Local Storage and Session storage?
+- Use localStorage for cross-session, shared-per-origin data; use sessionStorage for per-tab, short-lived data that should vanish when the tab/window closes.
+
+46. What is eval()?
+- eval runs a string as JS code but is insecure, slow, and error-prone—avoid it and use safer alternatives like JSON.parse, new Function (with caution), or proper sandboxes.
+
+47. What is the difference between Shallow copy and deep copy?
+- Shallow copy duplicates the top-level container but shares nested references; deep copy duplicates everything recursively (at higher cost) — pick the approach that matches your correctness and performance needs and be mindful of type and circular-reference edge cases.
+
+48. What are the difference between undeclared and undefined variables?
+- "Undeclared" means no binding exists (ReferenceError when referenced); "undefined" is a legitimate value of a declared binding (safe to read, value === undefined).
+
+49. What is event bubbling 
+- Event bubbling is the upward propagation of an event from the target through ancestor elements—use delegation to handle many child elements efficiently and stopPropagation/stopImmediatePropagation when you need to control that flow.
+
+50. What is event capturing?
+- Capturing runs handlers top-down before the event reaches the target; use it when you must intercept events early, but prefer bubbling/delegation in most day-to-day code.
+
+51. What are cookies?
+- 
+52. typeOf operator?
+
+53. What is this in javascript and How it behaves in various scenarios ?
+54. How do you optimize the performance of application
+55. What is meant by debouncing and throttling
+
+
+
+
+
+Backend
+• Caching.
+• Data modeling.
+• Load balancing.
+• Cloud technologies.
+• Distributed systems.
+• Autoscaling infrastructure.
+• Rate limiting and throttling.
+• Security and authentication.
+• Monitoring and observability.
+• Concurrency and idempotency.
+• Job scheduling and cron systems.
+• Database optimization and indexing.
+• Events, message queues, and workers
+
+
+I interview backend engineers regularly
+
+… and this is my approach.
+
+What I do not focus on:
+- Libraries.
+- Frameworks.
+- Programming language.
+
+I focus on core backend development concepts:
+- System design.
+- HTTP concepts (REST, GraphQL, etc.)
+- API versioning and lifecycle management.
+- Authentication, authorization, and security.
+- Multithreading, concurrency, and scalability.
+- Database modeling and query optimization.
+- Logging and monitoring (key for maintainable systems).
+
+Bonus points:
+- Distributed systems.
+- Cloud technologies.
+- CI/CD pipelines.
+
+Why?
+
+Backend developers with strong fundamentals can quickly pick up new tools or technologies while contributing meaningfully from day one.
